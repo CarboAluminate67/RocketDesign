@@ -1,4 +1,34 @@
 # Engine Parameter Equations
-### Calculate I~sp~:
+### Calculate I<sub>sp</sub>
 
-$I$~sp~$=F \over \dot{m}g$~0~
+$I_{sp} = {F \over \dot{m}g_0}$
+
+where    
+$F$ = Engine Thrust   
+$\dot{m}$ = Mass Flow Rate    
+$g_0$ = Gravitational Acceleration Constant ($9.8 m/s^2$)
+
+### Calculate $F$
+
+$F = \dot{m}V_e + A_e(p_e - p_0)$
+
+where   
+$\dot{m}$ = Mass Flow Rate      
+$V_e$ = Exit Velocity   
+$A_e$ = Nozzle Exit Area
+$P_e$ = Exit Pressure
+$P_0$ = Free Stream (ambient air) Pressure
+
+# Constants
+### $\gamma$ (Specific Heat Ratio) = 1.25 (varies by propellant $\pm0.2$)
+
+
+
+# Design Parameters
+
+1. Engine Cycle
+2. Fuel Type
+3. Throat Diameter
+4. Bell Diameter
+5. Combustion Chamber Length
+6. Nozzle Length
