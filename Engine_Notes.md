@@ -14,32 +14,44 @@ $F = \dot{m}V_e + A_e(p_e - p_0)$
 
 where   
 $\dot{m}$ = Mass Flow Rate      
-$V_e$ = Exit Velocity   
-$A_e$ = Nozzle Exit Area   
-$P_e$ = Exit Pressure   
-$P_0$ = Free Stream (ambient air) Pressure   
+$V_e$ = Exit Velocity ($m/s$)   
+$A_e$ = Nozzle Exit Area ($m^2$)   
+$P_e$ = Exit Pressure (kPa)   
+$P_0$ = Free Stream (ambient air) Pressure (kPa)   
 
 ### Calculate $\dot{m}$
 
 $\dot{m} = {A^*p_t \over \sqrt{T_t}}\sqrt{\gamma \over R}({\gamma + 1 \over {2}})^{-{\gamma + 1 \over 2(\gamma-1)}}$
 
 where   
-$A^*$ = Throat Area   
-$p_t$ = Combustion Chamber Pressure   
-$T_t$ = Combustion Chamber Temperature    
-$\gamma$ = Ratio of Specific Heats   
+$A^*$ = Throat Area ($m^2$)  
+$p_t$ = Combustion Chamber Pressure (kPa)   
+$T_t$ = Combustion Chamber Temperature (K)    
+$\gamma$ = Ratio of Specific Heats  
 $R$ = Gas Constant   
 
+
+### Calculate $V_e$
+
+$V_e = \sqrt{{T_t\bar{R}\over{M_w}} {2\gamma\over{\gamma-1}}[1-({p_e\over{p_t}})^{{\gamma-1\over{\gamma}}}]}$
+
 # Constants
-### $\gamma$ (Specific Heat Ratio) = 1.25 (varies by propellant $\pm0.2$)
+### $\gamma$ (Specific Heat Ratio)
+Hydrolox = 1.21   
+Methalox = 1.21   
+RP-1 = 1.22
 
+### $R$ (Gas Constant of Combustions)
+Hydrolox = .705   
+Methalox = .424   
+RP-1 = .385   
 
+### $\bar{R}$ (Universal Gas Constant) = 8.314
 
 # Design Parameters
 
 1. Engine Cycle
 2. Fuel Type
-3. Throat Diameter
-4. Bell Diameter
-5. Combustion Chamber Length
-6. Nozzle Length
+3. Throat Diameter ($m$)
+4. Bell Diameter ($m$)
+5. Target Exit Pressure (5-100 kPa)
