@@ -44,12 +44,39 @@ $p_t$ = Combustion Chamber Pressure (kPa)
 
 ### Calculate $T_e$   
 
-$T_e = ({p_e\over{p_t}})^{\gamma - 1 \over{\gamma}}$
+$T_e = T_t({p_e\over{p_t}})^{\gamma - 1 \over{\gamma}}$
 
 where   
+$T_t$ = Combustion Chamber Temperature (K)   
 $p_e$ = Exit Pressure (kPa)   
 $p_t$ = Combustion Chamber Pressure (kPa)   
 $\gamma$ = Ratio of Specific Heats   
+
+### Calculate $A_e$
+
+$A_e = {\pi{}r^2}$
+
+where   
+$r$ = 1/2 Max Nozzle Diameter    
+
+### Calculate $A^*$
+
+$A^* = {A_e\over{({\gamma + 1\over{2}})^{-{\gamma+1\over{2({\gamma-1})}}}{({1+{\gamma-1\over2}M_e^2})^{\gamma+1\over{2({\gamma-1})}}\over{M_e}}}}$
+
+where   
+$A_e$ = Exit Area ($m^2$)   
+$\gamma$ = Ratio of Specific Heats   
+$M_e$ = Exit Mach Number   
+
+### Calculate $M_e$
+
+$M_e = {V_e\over{\sqrt{\gamma RT_e}}}$   
+
+where   
+$V_e$ = Exit Velocity (m/s)    
+$\gamma$ = Ratio of Specific Heats   
+$R$ = Gas Constant   
+$T_e$ = Exit Temperature
 
 # Constants
 ### Gravitational Acceleration Constant = 9.8 $m/s^2$
@@ -72,9 +99,12 @@ RP-1 = 21.6
 3550 K   
 **While this parameter varies slightly based on a number of factors, it always lies between 3500-3600 for any engine or fuel*
 
+### $\pi$ = 3.14159
+
 # Design Parameters
 
 1. Engine Cycle
 2. Fuel Type
 3. Target Exit Pressure (10-100kPa)
-5. Chamber Pressure (kPa)
+4. Chamber Pressure (kPa)
+5. Nozzle Max (exit) Diameter (m)
