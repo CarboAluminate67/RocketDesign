@@ -4,8 +4,8 @@
 $I_{sp} = {F \over \dot{m}g_0}$
 
 where    
-$F$ = Engine Thrust   
-$\dot{m}$ = Mass Flow Rate    
+$F$ = Engine Thrust (N)   
+$\dot{m}$ = Mass Flow Rate (kg/s)    
 $g_0$ = Gravitational Acceleration Constant
 
 ### Calculate $F$
@@ -16,8 +16,8 @@ where
 $\dot{m}$ = Mass Flow Rate      
 $V_e$ = Exit Velocity ($m/s$)   
 $A_e$ = Nozzle Exit Area ($m^2$)   
-$P_e$ = Exit Pressure (kPa)   
-$P_0$ = Free Stream (ambient air) Pressure (kPa)   
+$P_e$ = Exit Pressure (Pa)   
+$P_0$ = Free Stream (ambient air) Pressure (Pa)   
 
 ### Calculate $\dot{m}$
 
@@ -25,7 +25,7 @@ $\dot{m} = {A^*p_t \over \sqrt{T_t}}\sqrt{\gamma \over R}({\gamma + 1 \over {2}}
 
 where   
 $A^*$ = Throat Area ($m^2$)  
-$p_t$ = Combustion Chamber Pressure (kPa)   
+$p_t$ = Combustion Chamber Pressure (Pa)   
 $T_t$ = Combustion Chamber Temperature (K)    
 $\gamma$ = Ratio of Specific Heats  
 $R$ = Gas Constant   
@@ -39,8 +39,8 @@ $T_t$ = Combustion Chamber Temperature (K)
 $\bar{R}$ = Universal Gas Constant   
 $M_w$ = Average Molecular Mass of Gas (g/mol)   
 $\gamma$ = Ratio of Specific Heats   
-$p_e$ = Exit Pressure (kPa)   
-$p_t$ = Combustion Chamber Pressure (kPa)   
+$p_e$ = Exit Pressure (Pa)   
+$p_t$ = Combustion Chamber Pressure (Pa)   
 
 ### Calculate $T_e$   
 
@@ -48,8 +48,8 @@ $T_e = T_t({p_e\over{p_t}})^{\gamma - 1 \over{\gamma}}$
 
 where   
 $T_t$ = Combustion Chamber Temperature (K)   
-$p_e$ = Exit Pressure (kPa)   
-$p_t$ = Combustion Chamber Pressure (kPa)   
+$p_e$ = Exit Pressure (Pa)   
+$p_t$ = Combustion Chamber Pressure (Pa)   
 $\gamma$ = Ratio of Specific Heats   
 
 ### Calculate $A_e$
@@ -84,9 +84,9 @@ $T_e$ = Exit Temperature
 ### $\gamma$ (Specific Heat Ratio) = 1.22
 
 ### $R$ (Gas Constant of Combustions)
-Hydrolox = .705   
-Methalox = .424   
-RP-1 = .385   
+Hydrolox = 705   
+Methalox = 424   
+RP-1 = 385   
 
 ### $\bar{R}$ (Universal Gas Constant) = 8.314
 
@@ -105,6 +105,6 @@ RP-1 = 21.6
 
 1. Engine Cycle
 2. Fuel Type
-3. Target Exit Pressure (10-100kPa)
-4. Chamber Pressure (kPa)
+3. Target Exit Pressure (10000-100000Pa)
+4. Chamber Pressure (Pa)
 5. Nozzle Max (exit) Diameter (m)
