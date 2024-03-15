@@ -78,6 +78,19 @@ $\gamma$ = Ratio of Specific Heats
 $R$ = Gas Constant   
 $T_e$ = Exit Temperature
 
+### Calculate $p_0$
+
+$p_0 = p_s(1-{{gh}\over{c_pT_0}})^{{c_pM}\over{\bar{R}}}$
+
+where   
+$p_s$ = Atmospheric Pressure at Sea Level (Pa)   
+$g$ = Graviational Constant   
+$h$ = Altitude (m)    
+$c_p$ = Specific Heat of Air    
+$T_0$ = Sea Level Standard Temperature (K)    
+$M$ = Molar Mass of Air   
+$\bar{R}$ = Universal Gas Constant
+
 # Constants
 ### Gravitational Acceleration Constant = 9.8 $m/s^2$
 
@@ -101,6 +114,14 @@ RP-1 = 30
 
 ### $\pi$ = 3.14159
 
+### $p_s$ (Pressure at sea level) = 101325 Pa
+
+### $c_p$ (Specific Heat of Air) = 1004.7   
+
+### $T_0$ (Sea Level Standard Temp) = 288 K    
+ 
+### $M_a$ (Molar Mass of Dry Air) = .029
+
 # Design Parameters
 
 1. Engine Cycle
@@ -108,3 +129,4 @@ RP-1 = 30
 3. Target Exit Pressure (10000-100000Pa)
 4. Chamber Pressure (Pa)
 5. Nozzle Max (exit) Diameter (m)
+6. Current Altitude
