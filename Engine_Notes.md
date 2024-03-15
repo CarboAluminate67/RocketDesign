@@ -81,23 +81,23 @@ $T_e$ = Exit Temperature
 # Constants
 ### Gravitational Acceleration Constant = 9.8 $m/s^2$
 
-### $\gamma$ (Specific Heat Ratio) = 1.22
+### $\gamma$ (Specific Heat Ratio) = 1.2
 
 ### $R$ (Gas Constant of Combustions)
-Hydrolox = 705   
-Methalox = 424   
-RP-1 = 385   
+Hydrolox = 530   
+Methalox = 311   
+RP-1 = 276   
 
 ### $\bar{R}$ (Universal Gas Constant) = 8.314
 
 ### $M_w$ (Average Molecular Mass of Gas)   
-Hydrolox = 11.8    
-Methalox = 19.6   
-RP-1 = 21.6
+Hydrolox = 15.7     
+Methalox = 26.7   
+RP-1 = 30
 
 ### $T_t$ (Combustion Chamber Temperature)
-3550 K   
-**While this parameter varies slightly based on a number of factors, it always lies between 3500-3600 for any engine or fuel*
+3650 K   
+**While this parameter varies slightly based on a number of factors, it always lies between 3500-3700 for any engine or fuel*
 
 ### $\pi$ = 3.14159
 

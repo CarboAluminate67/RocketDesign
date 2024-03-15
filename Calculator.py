@@ -3,17 +3,17 @@ import math
 # Defining Global Constants
 global g; g = 9.8
 global y; y = 1.22
-global R; R = {'H': 705, 'M': 424, 'R': 385}
+global R; R = {'H': 530, 'M': 400, 'R': 420}
 global Rbar; Rbar = 8314
-global M; M = {'H': 11.8, 'M': 19.6, 'R': 21.6}
-global Tt; Tt = 3550
+global M; M = {'H': 15.7, 'M': 20.7, 'R': 19.8}
+global Tt; Tt = 3650
 global pi; pi = math.pi
 
 def Isp(F, mdot):
     return F/(mdot*g)
 
-def F(mdot, V, A, pe, p0):
-    return mdot*V + A*(pe-p0)
+def F(mdot, Ve, Ae, pe, p0):
+    return mdot*Ve+ Ae*(pe-p0)
 
 def mdot(At, pt, fuel):
     term1 = (At*pt)/math.sqrt(Tt)
@@ -32,4 +32,24 @@ def Ve(pe, pt, fuel):
 def Te(pe, pt):
     return Tt*((pe/pt)**((y-1)/y))
 
-print(Te(37000, 20640000))
+def Ae(r):
+    return pi*r**2
+
+def Me(Ve, Te, fuel):
+    return Ve/math.sqrt(y*R[fuel]*Te)
+
+def Ar(Me):
+    term1 = -((y+1)/(2*(y-1)))
+    term2 = ((y+1)/2)**term1
+    term3 = (y+1)/(2*(y-1))
+    term4 = (1+((y-1)/2)*(Me**2))**term3
+    term5 = term4/Me
+    return (term2*term5)
+
+print(mdot(.042, 9700000, 'R')) #236
+print(Ve(71000, 9700000, 'R')) #3350
+print(Te(71000, 9700000))
+print(Me(3280, 1500, 'R')) # 3.7
+print(Ar(3.7)) #16
+print(F(214, 3280, .9, 71000, 101000))
+print(Isp(674920, 214))
