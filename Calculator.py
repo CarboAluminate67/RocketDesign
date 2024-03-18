@@ -68,4 +68,8 @@ def EnginePerformance(fuel, exitPressure, chamberPressure, nozzleDiameter, altit
     efficiency = Isp(thrust, massFlow)
 
     metrics = {'Isp': round(efficiency), 'Thrust': round(thrust), 'Expansion Ratio': round(exitArea/throatArea), 'Exit Velocity': round(exitVelocity), 'Exit Temp': round(exitTemp)}
+    print(f'mass flow: {massFlow}')
     return metrics
+
+print(EnginePerformance('H', 37000, 20640000, 2.4, 0))
+print(mdot())
