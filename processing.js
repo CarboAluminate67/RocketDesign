@@ -1,1 +1,4 @@
-document.getElementById("test").innerHTML += "JS Test"
+function testingJS() {
+    document.getElementById("test").innerHTML = "JavaScript Test"
+}
+
