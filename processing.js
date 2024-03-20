@@ -1,11 +1,19 @@
 // Defining Global Constants
 let g = 9.8;
 let y = 1.22;
-let R = {'H': 530, 'M': 400, 'R': 420};
+R = {
+    'H': 530, 
+    'M': 400, 
+    'R': 420
+};
 let Rbar = 8314.32;
-let M = {'H': 15.7, 'M': 20.7, 'R': 19.8};
+M = {
+    'H': 15.7, 
+    'M': 20.7, 
+    'R': 19.8
+};
 let Tt = 3650;
-let pi = math.pi;
+let pi = Math.pi;
 let ps = 101325;
 let cp = 1004.7;
 let Ts = 288.15;
@@ -21,8 +29,8 @@ function F(mdot, Ve, Ae, pe, p0){
 }
 
 function mdot(At, pt, fuel){
-    var term1 = (At*pt)/math.sqrt(Tt);
-    var term2 = math.sqrt(y/R[fuel]);
+    var term1 = (At*pt)/Math.sqrt(Tt);
+    var term2 = Math.sqrt(y/R[fuel]);
     var term3 = -((y+1)/(2*(y-1)));
     var term4 = ((y+1)/2)**term3;
     return term1*term2*term4;
@@ -33,7 +41,7 @@ function Ve(pe, pt, fuel){
     var term2 = (2*y)/(y-1);
     var term3 = (y-1)/y;
     var term4 = (1-(pe/pt)**term3);
-    return math.sqrt(term1*term2*term4) ;
+    return Math.sqrt(term1*term2*term4) ;
 }
 
 function Te(pe, pt){
@@ -45,16 +53,11 @@ function Ae(r){
 }
 
 function Me(Ve, Te, fuel){
-    return Ve/math.sqrt(y*R[fuel]*Te);
+    return Ve/Math.sqrt(y*R[fuel]*Te);
 }
 
-function At(Me, r){
-    var term1 = -((y+1)/(2*(y-1)));
-    var term2 = ((y+1)/2)**term1;
-    var term3 = (y+1)/(2*(y-1));
-    var term4 = (1+((y-1)/2)*(Me**2))**term3;
-    var term5 = term4/Me;
-    return Ae(r)/(term2*term5);
+function At(r, Ax){
+    return Ae(r)/Ax;
 }
 
 function Pa(h){
@@ -63,17 +66,18 @@ function Pa(h){
     return term2*ps;
 }
 
-function EnginePerformance(fuel, exitPressure, chamberPressure, nozzleDiameter, altitude){
+function EnginePerformance(fuel, exitPressure, chamberPressure, nozzleDiameter, expansion, altitude){
     var exitVelocity = Ve(exitPressure, chamberPressure, fuel);
     var exitTemp = Te(exitPressure, chamberPressure);
-    var exitMach = Me(exitVelocity, exitTemp, fuel);
-    var throatArea = At(exitMach, nozzleDiameter/2);
+    var throatArea = At(nozzleDiameter/2, expansion);
     var massFlow = mdot(throatArea, chamberPressure, fuel);
     var exitArea = Ae(nozzleDiameter/2);
     var airPressure = Pa(altitude);
     var thrust = F(massFlow, exitVelocity, exitArea, exitPressure, airPressure);
     var efficiency = Isp(thrust, massFlow);
 
-    var metrics = {'Isp': round(efficiency), 'Thrust': round(thrust), 'Expansion Ratio': round(exitArea/throatArea), 'Exit Velocity': round(exitVelocity), 'Exit Temp': round(exitTemp)};
+    metrics = {'Isp': Math.round(efficiency), 'Thrust': Math.round(thrust), 'Exit Velocity': Math.round(exitVelocity), 'Exit Temp': Math.round(exitTemp)};
     return metrics;
 }
+
+console.log(EnginePerformance('H', 37000, 20640000, 2.3, 69, 0));

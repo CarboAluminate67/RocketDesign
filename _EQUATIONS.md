@@ -61,12 +61,11 @@ $r$ = 1/2 Max Nozzle Diameter
 
 ### Calculate $A^*$
 
-$A^* = {A_e\over{({\gamma + 1\over{2}})^{-{\gamma+1\over{2({\gamma-1})}}}{({1+{\gamma-1\over2}M_e^2})^{\gamma+1\over{2({\gamma-1})}}\over{M_e}}}}$
+$A^* = A_e/A_exp$
 
 where   
 $A_e$ = Exit Area ($m^2$)   
-$\gamma$ = Ratio of Specific Heats   
-$M_e$ = Exit Mach Number   
+$A_x$ = Expansion Ratio 
 
 ### Calculate $M_e$
 
@@ -129,4 +128,5 @@ RP-1 = 30
 3. Target Exit Pressure (10000-100000Pa)
 4. Chamber Pressure (Pa)
 5. Nozzle Max (exit) Diameter (m)
-6. Current Altitude
+6. Expansion Ratio
+7. Current Altitude
