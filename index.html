@@ -8,6 +8,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div id="parameters">
+        <div>
+            <label for="cycle">Engine Cycle:</label>
+            <select name="cycle" id="cycleSelect">
+                <option value="open">Open Cycle</option>
+                <option value="staged">Staged Combustion</option>
+                <option value="full">Full Flow</option>
+            </select>
+        </div>
+        <div>
+            <label for="fuel">Fuel Type:</label>
+            <select name="fuel" id="fuelSelect">
+                <option value="0">HydroLOX</option>
+                <option value="1">MethaLOX</option>
+                <option value="2">RP-1</option>
+            </select>
+        </div>
+        <div>
+            <input type="range" id="exitP" name="exitP" min="10000" max="100000" value="10000" oninput="this.nextElementSibling.value = this.value">
+            <output>10000</output>
+            <label for="exitP">Target Exit Pressure (Pa)</label>
+        </div>
+        <div>   
+            <input type="range" id="chamberP" name="chamberP" min="1000000" max="30000000" value="1000000" oninput="this.nextElementSibling.value = this.value">
+            <output>1000000</output>
+            <label for="exitP">Target Chamber Pressure (Pa)</label>
+        </div>
+        <div>
+            <input type="range" id="nozzleD" name="nozzleD" min="50" max="400" value="50" oninput="this.nextElementSibling.value = this.value">
+            <output>50</output>
+            <label for="nozzleD">Nozzle Diameter (cm)</label>
+        </div>
+        <div>
+            <input type="range" id="expansion" name="expansion" min="10" max="100" value="10" oninput="this.nextElementSibling.value = this.value">
+            <output>10</output>
+            <label for="expansion">Expansion Ratio</label>
+        </div>
+        <div>
+            <input type="range" id="altitude" name="altitude" min="0" max="25000" value="0" oninput="this.nextElementSibling.value = this.value">
+            <output>0</output>
+            <label for="exitP">Altitude (m)</label>
+        </div>
+        <button type="button" onclick="DisplayEngine()">Submit</button>
+
+    </div>
 </body>
 </html>

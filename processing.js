@@ -1,19 +1,13 @@
 // Defining Global Constants
 let g = 9.8;
 let y = 1.22;
-R = {
-    'H': 530, 
-    'M': 400, 
-    'R': 420
-};
+// Gas Constants H, M, R
+R = [704, 424, 385];
 let Rbar = 8314.32;
-M = {
-    'H': 15.7, 
-    'M': 20.7, 
-    'R': 19.8
-};
+//Molar Mass H, M, R
+let M = [11.8, 19.6, 21.6];
 let Tt = 3650;
-let pi = Math.pi;
+let pi = Math.PI;
 let ps = 101325;
 let cp = 1004.7;
 let Ts = 288.15;
@@ -76,8 +70,17 @@ function EnginePerformance(fuel, exitPressure, chamberPressure, nozzleDiameter, 
     var thrust = F(massFlow, exitVelocity, exitArea, exitPressure, airPressure);
     var efficiency = Isp(thrust, massFlow);
 
-    metrics = {'Isp': Math.round(efficiency), 'Thrust': Math.round(thrust), 'Exit Velocity': Math.round(exitVelocity), 'Exit Temp': Math.round(exitTemp)};
+    metrics = {'Isp': Math.round(efficiency), 'Thrust': Math.round(thrust/1000), 'Exit Velocity': Math.round(exitVelocity), 'Exit Temp': Math.round(exitTemp)};
     return metrics;
 }
 
-console.log(EnginePerformance('H', 37000, 20640000, 2.3, 69, 0));
+function DisplayEngine() {
+    var cycle = document.getElementById('cycleSelect').value;
+    var fuel = document.getElementById('fuelSelect').value;
+    var exitP = document.getElementById('exitP').value;
+    var chamberP = document.getElementById('chamberP').value;
+    var nozzleD = document.getElementById('nozzleD').value;
+    var expansion = document.getElementById('expansion').value;
+    var altitude = document.getElementById('altitude').value;
+    document.getElementById('parameters').innerHTML += JSON.stringify(EnginePerformance(fuel, exitP, chamberP, nozzleD, expansion, altitude));
+}
