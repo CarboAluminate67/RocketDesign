@@ -77,7 +77,3 @@ function EnginePerformance(fuel, exitPressure, chamberPressure, nozzleDiameter, 
     var metrics = {'Isp': round(efficiency), 'Thrust': round(thrust), 'Expansion Ratio': round(exitArea/throatArea), 'Exit Velocity': round(exitVelocity), 'Exit Temp': round(exitTemp)};
     return metrics;
 }
-
-function testingJS() {
-    document.getElementById("test").innerHTML = "JS Working."
-}
