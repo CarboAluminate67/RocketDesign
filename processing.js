@@ -70,17 +70,46 @@ function EnginePerformance(fuel, exitPressure, chamberPressure, nozzleDiameter, 
     var thrust = F(massFlow, exitVelocity, exitArea, exitPressure, airPressure);
     var efficiency = Isp(thrust, massFlow);
 
-    metrics = {'Isp': Math.round(efficiency), 'Thrust': Math.round(thrust/1000), 'Exit Velocity': Math.round(exitVelocity), 'Exit Temp': Math.round(exitTemp)};
-    return metrics;
+    return [Math.round(efficiency), Math.round(thrust), Math.round(exitVelocity), Math.round(exitTemp)]
 }
+
 
 function DisplayEngine() {
     var cycle = document.getElementById('cycleSelect').value;
     var fuel = document.getElementById('fuelSelect').value;
-    var exitP = document.getElementById('exitP').value;
-    var chamberP = document.getElementById('chamberP').value;
-    var nozzleD = document.getElementById('nozzleD').value;
+    var exitP = (document.getElementById('exitP').value)*1000;
+    var chamberP = (document.getElementById('chamberP').value)*1000;
+    var nozzleD = (document.getElementById('nozzleD').value)/100;
     var expansion = document.getElementById('expansion').value;
-    var altitude = document.getElementById('altitude').value;
-    document.getElementById('parameters').innerHTML += JSON.stringify(EnginePerformance(fuel, exitP, chamberP, nozzleD, expansion, altitude));
+    var altitude = (document.getElementById('altitude').value)*1000;
+
+    metrics = EnginePerformance(fuel, exitP, chamberP, nozzleD, expansion, altitude)
+    const isp = metrics[0];
+    const thrust = metrics[1];
+    const vel = metrics[2];
+    const temp = metrics[3];
+
+    document.getElementById('performance').innerHTML = `
+    <p id="ispVal">Isp: ${isp}</p> <canvas id="ispBar" width="500" height="18"></canvas>
+    <p id="thrustVal">Thrust: ${thrust}</p> <canvas id="thrustBar" width="500" height="18"></canvas>
+    <p id="velVal">Exit Velocity: ${vel}</p> <canvas id="velBar" width="500" height="18"></canvas>
+    <p id="tempVal">Exit Temperature: ${temp}</p> <canvas id="tempBar" width="500" height="18"></canvas>`;
+    
+    DisplayBar(isp, "ispBar")
+    DisplayBar(thrust, "thrustBar")
+    DisplayBar(vel, "velBar")
+    DisplayBar(temp, "tempBar")
+}
+
+function Normalize(num) 
+{
+    return (num-100)/(400)*100
+}
+
+function DisplayBar(val, can)
+{
+    const canvas = document.getElementById(can);
+    const context = canvas.getContext("2d")
+    Norm = Normalize(val)
+    context.fillRect(0, 0, Norm, 18)
 }
